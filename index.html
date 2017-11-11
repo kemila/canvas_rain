@@ -33,8 +33,8 @@
         // var y=0;
         // setInterval(function(){
         //     // 遮罩
-        //     ctx.fillStyle = "#000";
-        //     ctx.fillRect(300,y-10,2,10);
+        //     ctx.fillStyle = "rgba(0,0,0,0.05)";
+        //     ctx.fillRect(0,0,w,h);
         //     // 矩形
         //     ctx.fillStyle = "#fff";
         //     ctx.fillRect(300,y++,2,10);
@@ -142,6 +142,7 @@
             // 绘制透明层 作用: 1)让矩形变成雨滴的效果, 2)让水圈渐渐消失的效果;
             ctx.fillStyle = "rgba(0,0,0,0.05)";
             ctx.fillRect(0,0,w,h);
+            //ctx.clearRect(0,0,w,h)
             for (var i=0;i<rains.length;i++) {  
                 // 雨滴下落
                 rains[i].draw();
