@@ -123,17 +123,22 @@
 
         // 创建雨滴群
         var rains = [];
-        for (var i=0;i<30;i++) {
+        var num = random(10,30);
+        for (var i=0;i<num;i++) {
             // 实例化雨滴
-            setTimeout(function(){
-                var rain = new Rain();
-                rain.init();
-                rains.push(rain);
-            }, 200*i);
+            setTimeout(createRain, 200*i);
         }   
+        // 创建雨滴函数
+        function createRain(){
+            var rain = new Rain();
+            rain.init();
+            rains.push(rain);
+        }
 
         // 绘制雨滴
-        setInterval(function(){
+        setInterval(moveRain, 1000/60);
+        // 移动雨滴
+        function moveRain() {
             // 绘制透明层 作用: 1)让矩形变成雨滴的效果, 2)让水圈渐渐消失的效果;
             ctx.fillStyle = "rgba(0,0,0,0.05)";
             ctx.fillRect(0,0,w,h);
@@ -141,8 +146,7 @@
                 // 雨滴下落
                 rains[i].draw();
             }
-        }, 1000/60);
-
+        }
     
     </script>
     
